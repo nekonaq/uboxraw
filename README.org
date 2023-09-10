@@ -1,0 +1,28 @@
+# -*- mode: org; buffer-read-only: nil; truncate-lines: nil; fill-column: 84 -*-
+#+STARTUP: showall
+#+OPTIONS: ^:{} toc:nil num:nil date:nil author:nil
+#+BIND: org-html-toplevel-hlevel 3
+
+* uboxraw
+
+  VirtualBox で空の VM を生成するための OVF。
+  インポートすると次の構成の VM ができる。
+
+ | 項目                 |                 |
+ |----------------------+-----------------|
+ | Guest OS Type        | Ubuntu (64-bit) |
+ | CPU                  | 1               |
+ | RAM                  | 2048 MB         |
+ | Chipset              | ICH9            |
+ | TPM                  | None            |
+ | Pointing Device      | PS/2 Mouse      |
+ | EFI                  | Enabled         |
+ | Secure Boot          | Disabled        |
+ |----------------------+-----------------|
+ | Graphics Controller  | VMSVGA          |
+ | Storage Controller#1 | SATA AHCI       |
+ | Storage Controller#2 | USB             |
+ | USB Controller       | USB 3.0 (xHCI)  |
+ |----------------------+-----------------|
+ | Attached Storage     | None            |
+ | Attached Network     | None            |

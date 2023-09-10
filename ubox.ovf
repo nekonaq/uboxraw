@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<Envelope ovf:version="1.0" xml:lang="en-US" xmlns="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vbox="http://www.virtualbox.org/ovf/machine">
+  <References/>
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+  </DiskSection>
+  <NetworkSection>
+    <Info>Logical networks used in the package</Info>
+  </NetworkSection>
+  <VirtualSystem ovf:id="uboxraw">
+    <Info>A virtual machine</Info>
+    <OperatingSystemSection ovf:id="94">
+      <Info>The kind of installed guest operating system</Info>
+      <Description>Ubuntu_64</Description>
+      <vbox:OSType ovf:required="false">Ubuntu_64</vbox:OSType>
+    </OperatingSystemSection>
+    <VirtualHardwareSection>
+      <Info>Virtual hardware requirements for a virtual machine</Info>
+      <System>
+        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+        <vssd:InstanceID>0</vssd:InstanceID>
+        <vssd:VirtualSystemIdentifier>uboxraw</vssd:VirtualSystemIdentifier>
+        <vssd:VirtualSystemType>virtualbox-2.2</vssd:VirtualSystemType>
+      </System>
+      <Item>
+        <rasd:Caption>1 virtual CPU</rasd:Caption>
+        <rasd:Description>Number of virtual CPUs</rasd:Description>
+        <rasd:ElementName>1 virtual CPU</rasd:ElementName>
+        <rasd:InstanceID>1</rasd:InstanceID>
+        <rasd:ResourceType>3</rasd:ResourceType>
+        <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+        <rasd:Caption>2048 MB of memory</rasd:Caption>
+        <rasd:Description>Memory Size</rasd:Description>
+        <rasd:ElementName>2048 MB of memory</rasd:ElementName>
+        <rasd:InstanceID>2</rasd:InstanceID>
+        <rasd:ResourceType>4</rasd:ResourceType>
+        <rasd:VirtualQuantity>2048</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:Address>0</rasd:Address>
+        <rasd:Caption>sataController0</rasd:Caption>
+        <rasd:Description>SATA Controller</rasd:Description>
+        <rasd:ElementName>sataController0</rasd:ElementName>
+        <rasd:InstanceID>3</rasd:InstanceID>
+        <rasd:ResourceSubType>AHCI</rasd:ResourceSubType>
+        <rasd:ResourceType>20</rasd:ResourceType>
+      </Item>
+    </VirtualHardwareSection>
+    <vbox:Machine ovf:required="false" version="1.16-linux" uuid="{3adb789f-1617-4656-9550-8a0cb316fe91}" name="uboxraw" OSType="Ubuntu_64" snapshotFolder="Snapshots" lastStateChange="2021-07-12T00:34:19Z">
+      <ovf:Info>Complete VirtualBox machine configuration in VirtualBox format</ovf:Info>
+      <ExtraData>
+        <ExtraDataItem name="GUI/LastCloseAction" value="PowerOff"/>
+        <ExtraDataItem name="GUI/LastNormalWindowPosition" value="145,86,640,526"/>
+        <ExtraDataItem name="VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant" value="1"/>
+      </ExtraData>
+      <Hardware>
+        <CPU>
+          <PAE enabled="true"/>
+          <LongMode enabled="true"/>
+          <X2APIC enabled="true"/>
+          <HardwareVirtExLargePages enabled="false"/>
+        </CPU>
+        <Memory RAMSize="2048"/>
+        <Firmware type="EFI64"/>
+        <Chipset type="ICH9"/>
+        <Boot>
+          <Order position="1" device="DVD"/>
+          <Order position="2" device="HardDisk"/>
+          <Order position="3" device="None"/>
+          <Order position="4" device="None"/>
+        </Boot>
+        <Display controller="VMSVGA"/>
+        <VideoCapture screens="1" file="." fps="25"/>
+        <RemoteDisplay>
+          <VRDEProperties>
+            <Property name="TCP/Address" value="127.0.0.1"/>
+            <Property name="TCP/Ports" value="5900"/>
+          </VRDEProperties>
+        </RemoteDisplay>
+        <BIOS>
+          <IOAPIC enabled="true"/>
+          <SmbiosUuidLittleEndian enabled="true"/>
+        </BIOS>
+        <USB>
+          <Controllers>
+            <Controller name="xHCI" type="XHCI"/>
+          </Controllers>
+        </USB>
+        <Network>
+          <Adapter slot="0" MACAddress="080027F86AD9" type="virtio">
+            <NAT>
+              <DNS use-proxy="true"/>
+            </NAT>
+          </Adapter>
+        </Network>
+        <UART>
+          <Port slot="0" enabled="false" IOBase="0x3f8" IRQ="4" server="false" path="127.0.0.1:8903" hostMode="TCP"/>
+        </UART>
+        <AudioAdapter driver="Pulse" enabledIn="false" enabledOut="false"/>
+        <RTC localOrUTC="UTC"/>
+        <Clipboard/>
+        <GuestProperties>
+          <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="C" timestamp="1626050059812570000" flags=""/>
+        </GuestProperties>
+      </Hardware>
+      <StorageControllers>
+        <StorageController name="SATA Controller" type="AHCI" PortCount="3" useHostIOCache="true" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3"/>
+        <StorageController name="USB" type="USB" PortCount="8" useHostIOCache="false" Bootable="true"/>
+      </StorageControllers>
+    </vbox:Machine>
+  </VirtualSystem>
+</Envelope>
